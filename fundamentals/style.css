@@ -1,0 +1,167 @@
+/* ==========================================================================
+   Kselis Notes & KPL Sandbox - Universal Export Stylesheet
+   ========================================================================== */
+
+:root {
+    /* Note Theme Colors */
+    --text-primary: #333333;
+    --text-heading: #111111;
+    --accent-color: #757575; /* Grey for buttons and links */
+    --bg-backdrop: #fafafa;
+    --border-color: #eaeaea;
+    --code-bg: #f4f4f4;
+    --code-text: #eb5757;
+
+    /* Sandbox Theme Colors */
+    --bg-main: #1e1e1e;
+    --bg-panel: #252526;
+    --bg-input: #3c3c3c;
+    --text-main: #cccccc;
+    --text-muted: #858585;
+    --accent: #007acc;
+    --error: #f48771;
+    --success: #89d185;
+    --border: #3c3c3c;
+    --font-mono: 'Consolas', 'Courier New', monospace;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- 1. CORE DOCUMENT STYLES (The Notes) --- */
+html { 
+    background-color: var(--bg-backdrop); 
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    
+    /* Transparent Background with Dot Grid */
+    background-color: transparent;
+    background-image: radial-gradient(#d5d5d5 1px, transparent 1px);
+    background-size: 24px 24px;
+    
+    max-width: 1000px; /* Adjusted down slightly for better reading width */
+    margin: 40px auto;
+    padding: 60px 80px;
+    border: none;
+    box-shadow: none;
+}
+
+h1 { font-size: 2.4rem; font-weight: 700; color: var(--text-heading); margin-top: 0; }
+h2 { font-size: 1.6rem; font-weight: 700; color: var(--text-heading); margin-top: 1.5em; }
+a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+a:hover { text-decoration: underline; }
+
+code:not(.CodeMirror *) { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: var(--code-text); }
+pre:not(.CodeMirror) { background: #f8f8f8; border: 1px solid var(--border-color); padding: 16px; border-radius: 8px; overflow-x: auto; }
+
+.section { margin-bottom: 30px; }
+
+/* Restored original Analogy Box styling */
+.analogy { 
+    background: #e7f3fe; 
+    border-left: 4px solid #2196F3; 
+    padding: 16px 20px; 
+    margin: 20px 0; 
+    border-radius: 0 8px 8px 0; 
+    font-style: italic;
+}
+
+.example { background: #fafafa; border: 1px solid var(--border-color); padding: 16px 20px; margin: 20px 0; border-radius: 8px; }
+
+table { border-collapse: collapse; width: 100%; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+th, td { padding: 12px 16px; border: 1px solid var(--border-color); text-align: left; }
+th { background-color: #f0f0f0; font-weight: 600; color: #333; }
+
+.image-section { display: flex; flex-direction: column; align-items: center; margin: 40px 0; padding: 24px; background: transparent; border: 1px solid var(--border-color); border-radius: 12px; }
+.image-section img { max-width: 100%; max-height: 500px; border-radius: 8px; }
+.caption { margin-top: 16px; font-size: 0.95rem; color: #666; font-style: italic; text-align: center; }
+
+#print { 
+    display: block; 
+    width: fit-content; 
+    margin: 40px auto 0 auto; 
+    background-color: var(--accent-color); 
+    color: #fff; 
+    padding: 12px 24px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    text-align: center; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background 0.2s, transform 0.1s;
+}
+#print:hover { background-color: #555555; text-decoration: none; transform: translateY(-2px); }
+
+/* --- 2. SCOPED EMBED STYLES (The KPL Sandbox) --- */
+.pseudo-sandbox { display: none; }
+
+.sandbox-container, .sandbox-container * {
+    box-sizing: border-box;
+}
+
+.sandbox-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 1px;
+    background-color: var(--border);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+
+.embedded-sandbox {
+    height: 500px;
+    width: 100% !important;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 24px 0;
+}
+
+.panel { background-color: var(--bg-panel); display: flex; flex-direction: column; overflow: hidden; }
+.panel-header { background-color: #2d2d2d; padding: 8px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+
+.toolbar { display: flex; gap: 8px; }
+.sandbox-container button { background-color: var(--bg-input); color: var(--text-main); border: 1px solid var(--border); border-radius: 4px; padding: 4px 12px; font-size: 12px; cursor: pointer; transition: all 0.2s; }
+.sandbox-container button:hover { background-color: var(--accent); border-color: var(--accent); color: #fff; }
+.run-btn { background-color: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; }
+
+.editor-container { flex-grow: 1; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+.CodeMirror { height: 100%; flex-grow: 1; font-family: var(--font-mono) !important; font-size: 14px; }
+
+.variables-panel { grid-column: 2; grid-row: 1; }
+.variables-content { padding: 16px; font-family: var(--font-mono); font-size: 13px; overflow-y: auto; flex-grow: 1; }
+.terminal-panel { grid-column: 1 / span 2; grid-row: 2; }
+.terminal-content { padding: 16px; font-family: var(--font-mono); font-size: 13px; overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; }
+
+.term-line { margin-bottom: 4px; white-space: pre-wrap; }
+.term-error { color: var(--error); }
+.term-success { color: var(--success); }
+.term-system { color: var(--text-muted); font-style: italic; }
+.term-input-line { display: flex; align-items: center; margin-top: 4px; }
+.term-prompt { color: var(--accent); margin-right: 8px; }
+.term-input { background: transparent; border: none; color: var(--text-main); font-family: var(--font-mono); font-size: 13px; flex-grow: 1; outline: none; }
+.hidden { display: none !important; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    body { margin: 0; padding: 30px 20px; }
+}
+@media (max-width: 768px) {
+    .sandbox-container { display: flex; flex-direction: column; }
+    .panel { flex: none; border-bottom: 1px solid var(--border); }
+    .editor-panel { height: 40vh; }
+    .variables-panel { height: 25vh; }
+    .terminal-panel { height: 35vh; }
+}
+
+@media print {
+    html, body { background: white !important; height: auto; margin: 0; padding: 0; max-width: 100%; }
+    #print { display: none !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
