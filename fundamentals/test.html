@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Kselis Note - Inputs, Outputs, and Constraints</title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+
+  <link rel="stylesheet" href="../playground/sandbox.css">
+  <script src="../playground/sandbox.js" defer></script>
+
+  <style>
+    body { font-family: 'Raleway', sans-serif; line-height: 1.6; margin: 20px; }
+    .button { text-decoration: none; color: #fff; background: #333; padding: 10px 15px; border-radius: 4px; transition: background 0.3s ease; }
+    .button:hover { background: #555; transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .section { margin-bottom: 30px; }
+    .analogy { background: #e7f3fe; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; font-style: italic; }
+    body { font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Understanding Inputs, Outputs, and Constraints: The Foundation of Problem Solving</h1>
+  <p>Hello there! I’m so happy you are joining me at the Kselis Institute. Today, we are going to learn a super important way to look at *any* problem—no matter how big or small. We are going to talk about three simple but powerful ideas: Inputs, Outputs, and Constraints. Understanding these three things is like having a secret map that helps you plan anything successfully!</p>
+  
+  <div class="section">
+    <h2>What are Inputs? (What You Start With)</h2>
+  </div>
+  <p>Think of inputs as all the materials, resources, information, or energy you start with before you begin any task...</p>
+  
+  <div class="section">
+    <h2>What are Outputs? (What You Want to Achieve)</h2>
+  </div>
+  <p>The output is simply the final result, the goal, or what you are trying to create by using your inputs...</p>
+  
+  <div class="section">
+    <h2>What are Constraints? (The Limitations)</h2>
+  </div>
+  <p>Constraints are the rules, limitations, restrictions, or boundaries you have to work within...</p>
+  
+  <div class="section">
+    <h2>Putting It All Together: The Relationship</h2>
+  </div>
+  <p>Inputs, Outputs, and Constraints work together in a cycle...</p>
+  
+  <div class="analogy"><strong>Analogy:</strong>
+  Think about baking a cake. Your **Inputs** are the ingredients (flour, sugar, eggs). Your desired **Output** is the finished cake...</div>
+
+  <h3>Try it yourself!</h3>
+  <p>Run the code below to see how constraints affect the output of planning a party. Try changing the input budget to see what happens!</p>
+  
+  <pre class="pseudo-sandbox">
+# 1. Inputs (What we have)
+SET max_budget TO 500
+SET cost_per_guest TO 20
+
+# We can ask the user for an input!
+SET guests TO INPUT_NUM("How many guests are you inviting?")
+
+# Calculate total needed
+SET total_cost TO guests * cost_per_guest
+
+# 2. Constraints (The limits we must check)
+IF total_cost > max_budget THEN
+    # 3. Output (Failure state)
+    PRINT "Constraint Failed: The party costs " + TO_STRING(total_cost) + " but you only have " + TO_STRING(max_budget)
+ELSE
+    # 3. Output (Success state)
+    PRINT "Output Achieved: Party is successfully planned!"
+    PRINT "You have " + TO_STRING(max_budget - total_cost) + " left over."
+ENDIF
+  </pre>
+
+  <p>So, whenever you face a problem—whether it’s organizing a big family trip or managing your monthly finances—stop and ask yourself these three questions: What do I have? What do I want? And what are my limits? By answering these questions clearly, you gain the power to solve almost anything! Keep practicing this mindset, and you will become a master problem-solver!</p>
+  <br><br>
+  <a class="button" id="print" onclick="window.print()">Save as PDF</a>
+</body>
+</html>
