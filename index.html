@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Computational Thinking Notes | Kselis" />
+    <meta property="og:description" content="Structured curriculum and concise revision notes for Computational Thinking." />
+    <title>Computational Thinking | Kselis Syllabus</title>
+    
+    <link rel="icon" href="../../kselis_logo/kselis_logo_nobg_light.png" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Cormorant+Infant:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        :root {
+            --bg-color: #fafafa;
+            --surface: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border-color: #e5e7eb;
+            --accent: #667eea;
+            --accent-light: #e0e7ff;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-main); }
+
+        /* --- HERO HEADER --- */
+        .syllabus-hero {
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, #fafafa);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .course-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--text-main);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .syllabus-hero h1 {
+            font-family: 'Cormorant Infant', serif;
+            font-size: 4rem;
+            margin: 0 0 15px 0;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .syllabus-hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* --- SYLLABUS LIST --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 60px 20px;
+            flex-grow: 1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .module-row {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-row:not(.locked):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            border-color: #d1d5db;
+        }
+        
+        /* Locked Module Styling */
+        .module-row.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: #f9fafb;
+        }
+
+        /* The giant background number */
+        .module-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #f3f4f6;
+            position: absolute;
+            left: -10px;
+            bottom: -20px;
+            z-index: 0;
+            pointer-events: none;
+            font-family: 'Raleway', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .module-row:not(.locked):hover .module-number {
+            color: #ebf0fe;
+        }
+
+        .module-icon {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .module-content {
+            flex-grow: 1;
+            z-index: 1;
+        }
+
+        .module-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .module-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .module-action {
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            color: var(--text-muted);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .module-row:not(.locked):hover .module-action {
+            background: var(--accent);
+            color: #fff;
+        }
+        
+        .status-badge {
+            font-size: 0.7rem;
+            background-color: #e5e7eb;
+            color: #4b5563;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--surface);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .syllabus-hero { padding: 50px 20px 40px; }
+            .syllabus-hero h1 { font-size: 2.8rem; }
+            .module-row { padding: 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .module-action { display: none; }
+            .module-icon { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+            <a href="../index.html"><span class="material-symbols-outlined">arrow_back</span> Notes Library</a>
+        </div>
+    </nav>
+
+    <header class="syllabus-hero">
+        <span class="course-badge">Course Curriculum</span>
+        <h1>Computational Thinking</h1>
+        <p>A structured collection of concise revision notes designed for quick review and conceptual clarity. Free to view and share.</p>
+    </header>
+
+    <div class="container">
+        <div class="module-list">
+            
+            <a href="intro.html" class="module-row">
+                <div class="module-number">01</div>
+                <div class="module-icon"><span class="material-symbols-outlined">lightbulb</span></div>
+                <div class="module-content">
+                    <h3>Introduction to CT</h3>
+                    <p>Explore the fundamental concepts of computational thinking, problem solving, and algorithms.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="flowcharts.html" class="module-row">
+                <div class="module-number">02</div>
+                <div class="module-icon"><span class="material-symbols-outlined">account_tree</span></div>
+                <div class="module-content">
+                    <h3>Flowcharts and Pseudocode</h3>
+                    <p>Learn how to visually and textually represent algorithms before coding.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="logic.html" class="module-row">
+                <div class="module-number">03</div>
+                <div class="module-icon"><span class="material-symbols-outlined">calculate</span></div>
+                <div class="module-content">
+                    <h3>Boolean Logic</h3>
+                    <p>Understand AND, OR, NOT operations and how conditions dictate program flow.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+            
+            <div class="module-row locked">
+                <div class="module-number">04</div>
+                <div class="module-icon"><span class="material-symbols-outlined">lock</span></div>
+                <div class="module-content">
+                    <h3>Iterative Processes <span class="status-badge">Adding Soon</span></h3>
+                    <p>Master loops, repetition, and breaking down complex repetitive tasks.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">lock</span></div>
+            </div>
+
+            <div class="module-row locked">
+                <div class="module-number">05</div>
+                <div class="module-icon"><span class="material-symbols-outlined">lock</span></div>
+                <div class="module-content">
+                    <h3>Data Representation <span class="status-badge">Adding Soon</span></h3>
+                    <p>Learn how data is abstracted, modeled, and organized for computation.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">lock</span></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 10px;">All rights reserved by <strong>Kselis Institute</strong> &copy; 2025.</p>
+        <p>
+            <a href="../../contact.html">Contact Us</a> |
+            <a href="mailto:kselis.institute@gmail.com">Mail Us</a> |
+            <a href="https://linkedin.com/company/kselis-school" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+</body>
+</html>
