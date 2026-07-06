@@ -47,6 +47,12 @@
             z-index: 100;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
@@ -59,6 +65,23 @@
         }
 
         .nav-links a:hover { color: var(--text-main); }
+
+        .playground-btn {
+            background-color: var(--text-main);
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        
+        .playground-btn:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        .playground-btn .material-symbols-outlined {
+            font-size: 20px;
+        }
 
         /* --- HERO HEADER --- */
         .syllabus-hero {
@@ -134,14 +157,12 @@
             border-color: #d1d5db;
         }
         
-        /* Locked Module Styling */
         .module-row.locked {
             opacity: 0.6;
             cursor: not-allowed;
             background: #f9fafb;
         }
 
-        /* The giant background number */
         .module-number {
             font-size: 4rem;
             font-weight: 800;
@@ -243,7 +264,6 @@
 
         footer a:hover { text-decoration: underline; }
 
-        /* --- MOBILE --- */
         @media (max-width: 768px) {
             .syllabus-hero { padding: 50px 20px 40px; }
             .syllabus-hero h1 { font-size: 2.8rem; }
@@ -259,6 +279,11 @@
         <div class="nav-links">
             <a href="../index.html"><span class="material-symbols-outlined">arrow_back</span> Notes Library</a>
         </div>
+        <div class="nav-links">
+            <a href="../../editor.html" class="playground-btn" target="_blank">
+                <span class="material-symbols-outlined">code</span> Code Playground
+            </a>
+        </div>
     </nav>
 
     <header class="syllabus-hero">
@@ -270,56 +295,346 @@
     <div class="container">
         <div class="module-list">
             
-            <a href="intro.html" class="module-row">
+            <a href="00_course_orientation.html" class="module-row">
+                <div class="module-number">00</div>
+                <div class="module-icon"><span class="material-symbols-outlined">school</span></div>
+                <div class="module-content">
+                    <h3>Course Orientation</h3>
+                    <p>Introduce the course structure, learning goals, assessments, and expectations. Explain that computational thinking is a way of solving problems and is not the same as programming.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="01_what_is_computational_thinking.html" class="module-row">
                 <div class="module-number">01</div>
                 <div class="module-icon"><span class="material-symbols-outlined">lightbulb</span></div>
                 <div class="module-content">
-                    <h3>Introduction to CT</h3>
-                    <p>Explore the fundamental concepts of computational thinking, problem solving, and algorithms.</p>
+                    <h3>What is Computational Thinking?</h3>
+                    <p>Define computational thinking as a structured approach to problem solving. Provide everyday examples such as planning a trip, organizing a room, or following a recipe.</p>
                 </div>
                 <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
             </a>
 
-            <a href="flowcharts.html" class="module-row">
+            <a href="02_why_computational_thinking_matters.html" class="module-row">
                 <div class="module-number">02</div>
+                <div class="module-icon"><span class="material-symbols-outlined">public</span></div>
+                <div class="module-content">
+                    <h3>Why Computational Thinking Matters</h3>
+                    <p>Explore how computational thinking is used in science, business, education, and daily life. Focus on practical benefits rather than technical details.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="03_understanding_problems.html" class="module-row">
+                <div class="module-number">03</div>
+                <div class="module-icon"><span class="material-symbols-outlined">psychology</span></div>
+                <div class="module-content">
+                    <h3>Understanding Problems</h3>
+                    <p>Teach students how to identify a problem, define goals, and understand what needs to be solved before jumping to solutions.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="04_inputs_outputs_constraints.html" class="module-row">
+                <div class="module-number">04</div>
+                <div class="module-icon"><span class="material-symbols-outlined">login</span></div>
+                <div class="module-content">
+                    <h3>Inputs, Outputs, and Constraints</h3>
+                    <p>Explain that every problem has inputs, desired outputs, and limitations. Use examples such as planning a budget or organizing an event.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="05_how_humans_solve_problems.html" class="module-row">
+                <div class="module-number">05</div>
+                <div class="module-icon"><span class="material-symbols-outlined">emoji_people</span></div>
+                <div class="module-content">
+                    <h3>How Humans Solve Problems</h3>
+                    <p>Introduce trial and error, intuition, experience, and observation. Discuss the strengths and weaknesses of human problem solving.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="06_how_computers_solve_problems.html" class="module-row">
+                <div class="module-number">06</div>
+                <div class="module-icon"><span class="material-symbols-outlined">computer</span></div>
+                <div class="module-content">
+                    <h3>How Computers Solve Problems</h3>
+                    <p>Explain that computers follow precise instructions and cannot make assumptions. Compare computer reasoning with human reasoning.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="07_decomposition_basics.html" class="module-row">
+                <div class="module-number">07</div>
+                <div class="module-icon"><span class="material-symbols-outlined">grid_view</span></div>
+                <div class="module-content">
+                    <h3>Decomposition</h3>
+                    <p>Explain how large problems can be broken into smaller parts. Use examples such as planning a vacation or organizing a school event.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="08_pattern_recognition.html" class="module-row">
+                <div class="module-number">08</div>
+                <div class="module-icon"><span class="material-symbols-outlined">join_inner</span></div>
+                <div class="module-content">
+                    <h3>Pattern Recognition</h3>
+                    <p>Teach students to identify similarities and repeated structures between problems. Use examples from games, routines, and daily activities.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="09_abstraction.html" class="module-row">
+                <div class="module-number">09</div>
+                <div class="module-icon"><span class="material-symbols-outlined">filter_alt</span></div>
+                <div class="module-content">
+                    <h3>Abstraction</h3>
+                    <p>Explain how to focus on important details while ignoring unnecessary information. Use examples such as maps and simplified diagrams.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="10_algorithmic_thinking.html" class="module-row">
+                <div class="module-number">10</div>
+                <div class="module-icon"><span class="material-symbols-outlined">format_list_numbered</span></div>
+                <div class="module-content">
+                    <h3>Algorithmic Thinking</h3>
+                    <p>Introduce the idea of creating step-by-step instructions to solve problems. Use everyday examples without writing code.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="11_everyday_algorithms.html" class="module-row">
+                <div class="module-number">11</div>
+                <div class="module-icon"><span class="material-symbols-outlined">local_cafe</span></div>
+                <div class="module-content">
+                    <h3>Everyday Algorithms</h3>
+                    <p>Explore algorithms found in daily life such as making tea, tying shoelaces, or preparing for school.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="12_introduction_to_logic.html" class="module-row">
+                <div class="module-number">12</div>
+                <div class="module-icon"><span class="material-symbols-outlined">alt_route</span></div>
+                <div class="module-content">
+                    <h3>Introduction to Logic</h3>
+                    <p>Introduce true and false statements, reasoning, and logical thinking through simple puzzles and examples.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="13_decision_making.html" class="module-row">
+                <div class="module-number">13</div>
+                <div class="module-icon"><span class="material-symbols-outlined">call_split</span></div>
+                <div class="module-content">
+                    <h3>Decision Making</h3>
+                    <p>Explain conditional thinking using IF-THEN scenarios. Use examples such as deciding whether to carry an umbrella.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="14_repetition_and_loops.html" class="module-row">
+                <div class="module-number">14</div>
+                <div class="module-icon"><span class="material-symbols-outlined">loop</span></div>
+                <div class="module-content">
+                    <h3>Repetition and Loops</h3>
+                    <p>Introduce repeated actions and routines. Explain why repeating instructions manually is inefficient.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="15_representing_information.html" class="module-row">
+                <div class="module-number">15</div>
+                <div class="module-icon"><span class="material-symbols-outlined">data_object</span></div>
+                <div class="module-content">
+                    <h3>Representing Information</h3>
+                    <p>Explore different ways information can be represented including text, numbers, symbols, tables, and diagrams.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="16_flowcharts.html" class="module-row">
+                <div class="module-number">16</div>
                 <div class="module-icon"><span class="material-symbols-outlined">account_tree</span></div>
                 <div class="module-content">
-                    <h3>Flowcharts and Pseudocode</h3>
-                    <p>Learn how to visually and textually represent algorithms before coding.</p>
+                    <h3>Flowcharts</h3>
+                    <p>Teach students how to visualize processes using simple flowchart symbols and decision points.</p>
                 </div>
                 <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
             </a>
 
-            <a href="logic.html" class="module-row">
-                <div class="module-number">03</div>
-                <div class="module-icon"><span class="material-symbols-outlined">calculate</span></div>
+            <a href="17_pseudocode.html" class="module-row">
+                <div class="module-number">17</div>
+                <div class="module-icon"><span class="material-symbols-outlined">code</span></div>
                 <div class="module-content">
-                    <h3>Boolean Logic</h3>
-                    <p>Understand AND, OR, NOT operations and how conditions dictate program flow.</p>
+                    <h3>Pseudocode</h3>
+                    <p>Introduce pseudocode as a way of writing algorithms in plain language without using programming syntax.</p>
                 </div>
                 <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
             </a>
-            
+
+            <a href="18_introduction_to_data.html" class="module-row">
+                <div class="module-number">18</div>
+                <div class="module-icon"><span class="material-symbols-outlined">table_chart</span></div>
+                <div class="module-content">
+                    <h3>Introduction to Data</h3>
+                    <p>Explain what data is and why information is collected. Use examples such as attendance records and survey responses.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="19_collecting_and_organizing_data.html" class="module-row">
+                <div class="module-number">19</div>
+                <div class="module-icon"><span class="material-symbols-outlined">inventory_2</span></div>
+                <div class="module-content">
+                    <h3>Collecting and Organizing Data</h3>
+                    <p>Teach basic methods for gathering, sorting, and organizing information for easier analysis.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="20_patterns_in_data.html" class="module-row">
+                <div class="module-number">20</div>
+                <div class="module-icon"><span class="material-symbols-outlined">insights</span></div>
+                <div class="module-content">
+                    <h3>Patterns in Data</h3>
+                    <p>Show how useful insights can be discovered by identifying trends, categories, and repeated behaviors.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="21_models_and_simulations.html" class="module-row">
+                <div class="module-number">21</div>
+                <div class="module-icon"><span class="material-symbols-outlined">science</span></div>
+                <div class="module-content">
+                    <h3>Models and Simulations</h3>
+                    <p>Introduce simplified representations of real-world systems such as maps, weather forecasts, and flight simulators.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="22_multiple_solutions.html" class="module-row">
+                <div class="module-number">22</div>
+                <div class="module-icon"><span class="material-symbols-outlined">hub</span></div>
+                <div class="module-content">
+                    <h3>Multiple Ways to Solve a Problem</h3>
+                    <p>Demonstrate that a single problem can have many solutions and discuss how different approaches may vary.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="23_efficiency.html" class="module-row">
+                <div class="module-number">23</div>
+                <div class="module-icon"><span class="material-symbols-outlined">speed</span></div>
+                <div class="module-content">
+                    <h3>Efficiency</h3>
+                    <p>Explain why some solutions are better than others based on time, effort, and resources required.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="24_optimization.html" class="module-row">
+                <div class="module-number">24</div>
+                <div class="module-icon"><span class="material-symbols-outlined">trending_up</span></div>
+                <div class="module-content">
+                    <h3>Optimization</h3>
+                    <p>Introduce the idea of improving an existing solution to make it faster, simpler, or more effective.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="25_errors_and_debugging.html" class="module-row">
+                <div class="module-number">25</div>
+                <div class="module-icon"><span class="material-symbols-outlined">bug_report</span></div>
+                <div class="module-content">
+                    <h3>Errors and Debugging</h3>
+                    <p>Explain how mistakes occur in processes and introduce systematic ways to identify and fix them.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="26_testing_solutions.html" class="module-row">
+                <div class="module-number">26</div>
+                <div class="module-icon"><span class="material-symbols-outlined">fact_check</span></div>
+                <div class="module-content">
+                    <h3>Testing Solutions</h3>
+                    <p>Teach students to verify whether a solution works correctly under different situations.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="27_iterative_improvement.html" class="module-row">
+                <div class="module-number">27</div>
+                <div class="module-icon"><span class="material-symbols-outlined">update</span></div>
+                <div class="module-content">
+                    <h3>Iterative Improvement</h3>
+                    <p>Introduce the idea of refining solutions through repeated testing and gradual enhancement.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="28_systems_thinking.html" class="module-row">
+                <div class="module-number">28</div>
+                <div class="module-icon"><span class="material-symbols-outlined">device_hub</span></div>
+                <div class="module-content">
+                    <h3>Systems Thinking</h3>
+                    <p>Explain how multiple components interact to form larger systems such as schools, transportation networks, or ecosystems.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
+            <a href="29_feedback_loops.html" class="module-row">
+                <div class="module-number">29</div>
+                <div class="module-icon"><span class="material-symbols-outlined">sync</span></div>
+                <div class="module-content">
+                    <h3>Feedback Loops</h3>
+                    <p>Introduce situations where outputs influence future inputs. Use examples such as thermostats and social media recommendations.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">arrow_forward</span></div>
+            </a>
+
             <div class="module-row locked">
-                <div class="module-number">04</div>
+                <div class="module-number">30</div>
                 <div class="module-icon"><span class="material-symbols-outlined">lock</span></div>
                 <div class="module-content">
-                    <h3>Iterative Processes <span class="status-badge">Adding Soon</span></h3>
-                    <p>Master loops, repetition, and breaking down complex repetitive tasks.</p>
+                    <h3>Computational Thinking in Real Life <span class="status-badge">Adding Soon</span></h3>
+                    <p>Explore practical applications of computational thinking in science, business, healthcare, education, and everyday decision making.</p>
                 </div>
                 <div class="module-action"><span class="material-symbols-outlined">lock</span></div>
             </div>
 
             <div class="module-row locked">
-                <div class="module-number">05</div>
+                <div class="module-number">31</div>
                 <div class="module-icon"><span class="material-symbols-outlined">lock</span></div>
                 <div class="module-content">
-                    <h3>Data Representation <span class="status-badge">Adding Soon</span></h3>
-                    <p>Learn how data is abstracted, modeled, and organized for computation.</p>
+                    <h3>Capstone: Selecting a Problem <span class="status-badge">Adding Soon</span></h3>
+                    <p>Choose a simple real-world problem and identify its goals, inputs, outputs, and constraints.</p>
                 </div>
                 <div class="module-action"><span class="material-symbols-outlined">lock</span></div>
             </div>
-            
+
+            <div class="module-row locked">
+                <div class="module-number">32</div>
+                <div class="module-icon"><span class="material-symbols-outlined">lock</span></div>
+                <div class="module-content">
+                    <h3>Capstone: Designing a Solution <span class="status-badge">Adding Soon</span></h3>
+                    <p>Apply decomposition, pattern recognition, abstraction, and algorithmic thinking to develop a solution.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">lock</span></div>
+            </div>
+
+            <div class="module-row locked">
+                <div class="module-number">33</div>
+                <div class="module-icon"><span class="material-symbols-outlined">lock</span></div>
+                <div class="module-content">
+                    <h3>Capstone: Evaluation and Reflection <span class="status-badge">Adding Soon</span></h3>
+                    <p>Evaluate the proposed solution, identify improvements, and reflect on the computational thinking process.</p>
+                </div>
+                <div class="module-action"><span class="material-symbols-outlined">lock</span></div>
+            </div>
+
         </div>
     </div>
 
