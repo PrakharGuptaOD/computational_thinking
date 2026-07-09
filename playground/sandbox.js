@@ -949,7 +949,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainEditorDiv = document.getElementById('editor');
     if (mainEditorDiv) {
         mainEditor = CodeMirror(mainEditorDiv, {
-            value: "# Start coding in KPL...",
+            value: "# Refer to https://kselis.github.io/computational_thinking/KSELIS_psuedocode_language for documentation",
             mode: "javascript",
             theme: "darcula",
             lineNumbers: true,
@@ -1208,7 +1208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = `
             <div class="panel editor-panel">
                 <div class="panel-header">
-                    <span>📝 Editor</span>
+                    <span>Editor</span>
                     <div class="toolbar">
                         <button class="embed-run run-btn">▶ Run</button>
                     </div>
