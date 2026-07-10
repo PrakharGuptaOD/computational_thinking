@@ -40,10 +40,7 @@ body {
     color: var(--text-primary);
     line-height: 1.7;
     font-size: 1.05rem;
-    
-   
-    
-    max-width: 1000px; /* Adjusted down slightly for better reading width */
+    max-width: 1000px;
     margin: 40px auto;
     padding: 60px 80px;
     border: none;
@@ -83,9 +80,9 @@ th { background-color: #f0f0f0; font-weight: 600; color: #333; }
 /* --- BUTTON GROUP LAYOUT --- */
 .button-group {
     display: flex;
-    justify-content: center; /* Centers the buttons horizontally */
+    justify-content: center;
     align-items: center;
-    gap: 16px; /* Adds perfect spacing between the buttons */
+    gap: 16px;
     margin: 40px auto 0 auto;
     width: 100%;
 }
@@ -93,7 +90,7 @@ th { background-color: #f0f0f0; font-weight: 600; color: #333; }
 /* --- ACTION BUTTON STYLING --- */
 .action-btn { 
     background-color: var(--accent-color); 
-    color: #fff !important; /* Forces text to stay white */
+    color: #fff !important; 
     padding: 12px 24px; 
     border-radius: 8px; 
     font-weight: 600; 
@@ -101,7 +98,7 @@ th { background-color: #f0f0f0; font-weight: 600; color: #333; }
     text-align: center; 
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: background 0.2s, transform 0.1s;
-    text-decoration: none; /* Removes underlines */
+    text-decoration: none; 
     display: inline-block;
 }
 
@@ -181,7 +178,49 @@ th { background-color: #f0f0f0; font-weight: 600; color: #333; }
 .term-prompt { color: var(--accent); margin-right: 8px; }
 .term-input { background: transparent; border: none; color: var(--text-main); font-family: var(--font-mono); font-size: 13px; flex-grow: 1; outline: none; }
 .hidden { display: none !important; }
+/* Sleek, clickable circular timer */
+.timer-circle {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 1.5px solid #d5d5d5;
+    background: var(--bg-backdrop, #fafafa);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    color: var(--text-primary, #333);
+    padding: 0;
+    outline: none;
+}
 
+.timer-circle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    background: #fdfdfd;
+}
+
+#minimal-timer {
+    font-size: 15px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+#timer-icon {
+    font-size: 10px;
+    color: #888;
+    line-height: 1;
+}
 /* Responsive adjustments */
 @media (max-width: 900px) {
     body { margin: 0; padding: 30px 20px; }
@@ -192,10 +231,20 @@ th { background-color: #f0f0f0; font-weight: 600; color: #333; }
     .editor-panel { height: 40vh; }
     .variables-panel { height: 25vh; }
     .terminal-panel { height: 35vh; }
+    .timer-circle {
+            top: auto; 
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+        }
+        #minimal-timer { font-size: 13px; }
+        #timer-icon { font-size: 9px; }
 }
 
 @media print {
     html, body { background: white !important; height: auto; margin: 0; padding: 0; max-width: 100%; }
+    .timer-circle { display: none !important; }
     #print { display: none !important; }
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
